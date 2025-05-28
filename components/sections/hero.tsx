@@ -3,31 +3,21 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { BookCallModal } from "@/components/ui/book-call-modal"
-import { TrendingUp, Users, Zap, ArrowRight, Sparkles, Brain, Cpu } from "lucide-react"
+import { TrendingUp, Users, Zap, ArrowRight, Sparkles, Brain, Cpu, Calendar, BarChart, Target } from "lucide-react"
+import Image from "next/image"
 
 export function HeroSection() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-100/60 pt-20 px-4 overflow-hidden relative">
+    <section className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-100/60 pt-32 pb-20 px-4 overflow-hidden relative">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Geometric Shapes */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-float"></div>
         <div className="absolute top-40 right-20 w-48 h-48 bg-gradient-to-r from-indigo-400/15 to-cyan-400/15 rounded-full blur-2xl animate-pulse-slow"></div>
-        <div className="absolute bottom-32 left-1/4 w-24 h-24 bg-gradient-to-r from-pink-400/20 to-rose-400/20 rounded-full blur-lg animate-bounce-slow"></div>
-
-        {/* Floating Icons */}
-        <div className="absolute top-32 left-1/3 animate-float animation-delay-1000">
-          <Brain className="w-8 h-8 text-[#004AAD]/30" />
-        </div>
-        <div className="absolute top-60 right-1/3 animate-bounce-slow animation-delay-500">
-          <Cpu className="w-6 h-6 text-purple-500/40" />
-        </div>
-        <div className="absolute bottom-40 right-1/4 animate-pulse-slow animation-delay-800">
-          <Sparkles className="w-10 h-10 text-indigo-400/50" />
-        </div>
+        <div className="absolute bottom-32 left-1/4 w-24 h-24 bg-gradient-to-r from-pink-400/20 to-rose-400/20 rounded-full blur-lg animate-float" style={{ animationDelay: '2s' }}></div>
 
         {/* Grid Pattern */}
-        <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 opacity-[0.03]">
           <div className="grid grid-cols-12 gap-4 h-full">
             {Array.from({ length: 144 }).map((_, i) => (
               <div key={i} className="border border-[#004AAD]/20"></div>
@@ -36,134 +26,189 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="container mx-auto py-16 lg:py-24 relative z-10">
-        <div className="grid lg:grid-cols-5 gap-12 items-center">
-          {/* Content - Left Side */}
-          <div className="lg:col-span-3 space-y-8 animate-fade-in-up">
-            <div className="space-y-6">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 bg-[#004AAD]/10 text-[#004AAD] px-4 py-2 rounded-full text-sm font-medium animate-slide-in-left">
-                <Sparkles className="w-4 h-4" />
-                AI-Powered Custom Solutions
-              </div>
-
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1A1A1A] leading-tight animate-slide-in-left animation-delay-200">
-                Custom AI Systems{" "}
-                <span className="bg-gradient-to-r from-[#004AAD] to-[#0B1E3F] bg-clip-text text-transparent animate-pulse-slow">
-                  Built Right
-                </span>
-              </h1>
-
-              <h2 className="text-xl md:text-2xl font-medium text-[#6B7280] animate-slide-in-left animation-delay-400">
-                AI-Powered Systems That Scale With You, For You
-              </h2>
-
-              <p className="text-lg text-[#6B7280] max-w-2xl leading-relaxed animate-slide-in-left animation-delay-600">
-                We build you custom software that works exactly how your business works - with AI where it adds real
-                value, not just because it's trendy.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 animate-slide-in-left animation-delay-800">
-              <BookCallModal>
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-[#004AAD] to-[#0B1E3F] hover:from-[#0B1E3F] hover:to-[#004AAD] text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl group shadow-lg"
-                >
-                  Build Something for Me
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </BookCallModal>
-
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-2 border-[#004AAD] text-[#004AAD] hover:bg-[#004AAD] hover:text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 bg-white/80 backdrop-blur-sm"
-              >
-                View Our Work
-              </Button>
-            </div>
-
-            {/* Trust Indicators */}
-            <div className="flex items-center gap-6 text-sm text-[#6B7280] animate-fade-in animation-delay-1000">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span>Custom Built</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse animation-delay-200"></div>
-                <span>AI-Powered</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse animation-delay-400"></div>
-                <span>Scalable</span>
-              </div>
-            </div>
+      <div className="container mx-auto max-w-7xl relative z-10">
+        {/* Centered Content */}
+        <div className="text-center space-y-8 mb-16">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#004AAD]/10 to-indigo-500/10 text-[#004AAD] px-5 py-2.5 rounded-full text-sm font-medium animate-fade-up border border-[#004AAD]/20 backdrop-blur-sm">
+            <div className="w-2 h-2 bg-[#004AAD] rounded-full animate-pulse"></div>
+            <span>Latest AI integration just arrived</span>
           </div>
 
-          {/* Visual - Right Side */}
-          <div className="lg:col-span-2 animate-fade-in-right">
-            <div className="relative">
-              {/* Main Dashboard Card */}
-              <Card className="p-6 bg-white/90 backdrop-blur-md shadow-2xl border-0 transform rotate-2 hover:rotate-0 transition-all duration-500 hover:shadow-3xl animate-float relative overflow-hidden">
-                {/* Card Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#004AAD]/5 to-purple-500/5 rounded-lg"></div>
+          {/* Main Heading */}
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-[#1A1A1A] leading-tight max-w-5xl mx-auto animate-fade-up" style={{ animationDelay: '0.1s' }}>
+           Custom AI Systems
+            <span className="bg-gradient-to-r from-[#004AAD] to-[#0B1E3F] bg-clip-text text-transparent">
+               {" "} Built Right
+            </span>
+          </h1>
 
-                <div className="space-y-4 relative z-10">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-semibold text-[#1A1A1A] flex items-center gap-2">
-                      <Brain className="w-5 h-5 text-[#004AAD]" />
-                      AI Business Dashboard
-                    </h3>
-                    <div className="flex gap-1">
-                      <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                      <div className="w-3 h-3 bg-[#004AAD] rounded-full animate-pulse animation-delay-200"></div>
-                    </div>
-                  </div>
+          {/* Subtitle */}
+          <p className="text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '0.2s' }}>
+            We provide the tools and insights you need to enhance performance and achieve results.
+          </p>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-3 rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-300 border border-blue-200/50">
-                      <div className="flex items-center gap-2 mb-2">
-                        <TrendingUp className="w-4 h-4 text-[#004AAD] animate-bounce-slow" />
-                        <span className="text-sm font-medium">Revenue</span>
-                      </div>
-                      <div className="text-xl font-bold text-[#004AAD] animate-count-up">$24.5K</div>
-                      <div className="text-xs text-green-600 font-medium">↗ +12.5%</div>
-                    </div>
+          {/* CTA Button */}
+          <div className="animate-fade-up" style={{ animationDelay: '0.3s' }}>
+            <BookCallModal>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-[#004AAD] to-[#0B1E3F] hover:from-[#0B1E3F] hover:to-[#004AAD] text-white px-8 py-6 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl group shadow-lg"
+              >
+                Start for free
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </BookCallModal>
+          </div>
+        </div>
 
-                    <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-3 rounded-xl hover:from-purple-100 hover:to-purple-200 transition-all duration-300 border border-purple-200/50">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Users className="w-4 h-4 text-purple-600" />
-                        <span className="text-sm font-medium">Users</span>
-                      </div>
-                      <div className="text-xl font-bold text-purple-600 animate-count-up">1,247</div>
-                      <div className="text-xs text-green-600 font-medium">↗ +8.2%</div>
+        {/* Dashboard Preview */}
+        <div className="max-w-6xl mx-auto animate-fade-up" style={{ animationDelay: '0.4s' }}>
+          <div className="relative group">
+            {/* Glow Effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#004AAD]/20 to-indigo-500/20 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-300"></div>
+            
+            {/* Main Dashboard Card */}
+            <Card className="relative p-8 bg-white/95 backdrop-blur-sm shadow-2xl border-0 rounded-2xl overflow-hidden">
+              {/* Header */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-[#004AAD] to-indigo-500 rounded-xl flex items-center justify-center">
+                      <Brain className="w-6 h-6 text-white" />
                     </div>
-                  </div>
-
-                  <div className="bg-gradient-to-r from-[#004AAD]/10 to-indigo-500/10 p-4 rounded-xl border-l-4 border-[#004AAD] animate-slide-in-right animation-delay-800 backdrop-blur-sm">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Zap className="w-4 h-4 text-[#004AAD] animate-pulse" />
-                      <span className="text-sm font-medium">AI Insights</span>
-                    </div>
-                    <p className="text-xs text-[#6B7280] mb-1">Customer engagement up 23% this week</p>
-                    <div className="w-full bg-gray-200 rounded-full h-1.5">
-                      <div className="bg-gradient-to-r from-[#004AAD] to-indigo-500 h-1.5 rounded-full w-3/4 animate-pulse"></div>
+                    <div>
+                      <h3 className="font-semibold text-[#1A1A1A] text-lg">Opscale</h3>
+                      <p className="text-sm text-[#6B7280]">Hi, Coco Design 👋</p>
                     </div>
                   </div>
                 </div>
-              </Card>
 
-              {/* Enhanced Floating Elements */}
-              <div className="absolute -top-6 -left-6 w-20 h-20 bg-gradient-to-r from-blue-400/30 to-purple-400/30 rounded-full animate-bounce-slow blur-sm"></div>
-              <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-gradient-to-r from-indigo-400/30 to-cyan-400/30 rounded-full animate-pulse-slow blur-sm"></div>
-              <div className="absolute top-1/2 -left-10 w-12 h-12 bg-gradient-to-r from-pink-400/30 to-rose-400/30 rounded-full animate-float animation-delay-1000 blur-sm"></div>
+                {/* Date and Profile */}
+                <div className="flex items-center gap-6">
+                  <div className="text-sm text-[#6B7280]">10:18:09 PM</div>
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-[#6B7280]" />
+                    <span className="text-sm text-[#6B7280]">Mar 2025</span>
+                  </div>
+                  <div className="w-8 h-8 bg-gradient-to-r from-[#004AAD] to-indigo-500 rounded-full"></div>
+                </div>
+              </div>
 
-              {/* Geometric Shapes */}
-              <div className="absolute top-16 right-16 w-8 h-8 border-2 border-[#004AAD]/30 rotate-45 animate-spin-slow"></div>
-              <div className="absolute bottom-16 left-16 w-6 h-6 bg-gradient-to-r from-green-400/40 to-emerald-400/40 rounded-full animate-bounce-slow animation-delay-600"></div>
-              <div className="absolute top-32 right-32 w-4 h-4 bg-gradient-to-r from-yellow-400/50 to-orange-400/50 transform rotate-45 animate-pulse-slow animation-delay-400"></div>
-            </div>
+              {/* Navigation */}
+              <div className="flex items-center gap-8 mb-8 pb-4 border-b border-gray-100">
+                <button className="flex items-center gap-2 text-sm font-medium text-[#6B7280] hover:text-[#004AAD] transition-colors">
+                  <BarChart className="w-4 h-4" />
+                  Overview
+                </button>
+                <button className="flex items-center gap-2 text-sm font-medium text-[#6B7280] hover:text-[#004AAD] transition-colors">
+                  <Brain className="w-4 h-4" />
+                  Analytics
+                </button>
+                <button className="flex items-center gap-2 text-sm font-medium text-[#6B7280] hover:text-[#004AAD] transition-colors">
+                  <Sparkles className="w-4 h-4" />
+                  AI Insights
+                </button>
+                <button className="flex items-center gap-2 text-sm font-medium text-[#6B7280] hover:text-[#004AAD] transition-colors">
+                  <Users className="w-4 h-4" />
+                  Customers
+                </button>
+              </div>
+
+              {/* Main Content Area */}
+              <div className="grid lg:grid-cols-3 gap-8">
+                {/* Left Side - Analytics */}
+                <div className="lg:col-span-2 space-y-6">
+                  <h4 className="font-semibold text-[#1A1A1A] text-lg">Your Sales & Analytics</h4>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {/* Available Payout */}
+                    <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 p-6 rounded-xl border border-blue-200/30">
+                      <p className="text-sm text-[#6B7280] mb-1">Available payout</p>
+                      <div className="text-3xl font-bold text-[#004AAD] mb-1">$90.0K+</div>
+                      <p className="text-xs text-[#6B7280]">Payout of 50K will be available soon</p>
+                    </div>
+
+                    {/* Today Revenue */}
+                    <div className="bg-gradient-to-br from-indigo-50 to-indigo-100/50 p-6 rounded-xl border border-indigo-200/30">
+                      <p className="text-sm text-[#6B7280] mb-1">Today revenue</p>
+                      <div className="text-3xl font-bold text-[#0B1E3F] mb-1">$50.0K+</div>
+                      <p className="text-xs text-[#6B7280]">Payout of 50K will be available soon</p>
+                    </div>
+                  </div>
+
+                  {/* Sales Funnel */}
+                  <div className="bg-gray-50/50 p-6 rounded-xl">
+                    <h5 className="font-semibold text-[#1A1A1A] mb-4">Sales Funnel</h5>
+                    <p className="text-sm text-[#6B7280] mb-4">Total view per month</p>
+                    
+                    {/* Chart Area */}
+                    <div className="flex items-end justify-between h-32 mb-4">
+                      {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day, index) => (
+                        <div key={day} className="flex-1 flex flex-col items-center gap-2">
+                          <div 
+                            className={`w-full mx-1 rounded-t transition-all duration-300 ${
+                              index === 3 ? 'bg-gradient-to-t from-[#004AAD] to-indigo-500' : 'bg-gray-300'
+                            }`}
+                            style={{ height: `${index === 3 ? 100 : 40 + Math.random() * 40}%` }}
+                          />
+                          <span className="text-xs text-[#6B7280]">{day}</span>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div className="flex items-center justify-center">
+                      <div className="text-2xl font-bold text-[#004AAD]">$500K</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Side - Visitors & Upgrade */}
+                <div className="space-y-6">
+                  {/* Export as CSV */}
+                  <button className="w-full py-3 px-4 bg-gray-100 hover:bg-gray-200 rounded-xl text-sm font-medium text-[#1A1A1A] transition-colors">
+                    Export as CSV
+                  </button>
+
+                  {/* Visitors */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-4">
+                    <h5 className="font-semibold text-[#1A1A1A] mb-4">Visitors</h5>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-[#6B7280]">Individual Target</span>
+                        <span className="text-sm font-medium text-[#1A1A1A]">92%</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-[#6B7280]">Corporate Target</span>
+                        <span className="text-sm font-medium text-[#1A1A1A]">67%</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-[#6B7280]">Foundation Target</span>
+                        <span className="text-sm font-medium text-[#1A1A1A]">54%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Upgrade to Pro */}
+                  <div className="bg-gradient-to-br from-[#004AAD]/10 to-indigo-500/10 p-6 rounded-xl border border-[#004AAD]/20">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Target className="w-5 h-5 text-[#004AAD]" />
+                      <h5 className="font-semibold text-[#1A1A1A]">Upgrade To Pro</h5>
+                    </div>
+                    <p className="text-sm text-[#6B7280] mb-4">
+                      Discover the benefits of an upgrade account
+                    </p>
+                    <Button className="w-full bg-gradient-to-r from-[#004AAD] to-[#0B1E3F] hover:from-[#0B1E3F] hover:to-[#004AAD] text-white rounded-lg">
+                      Upgrade $10
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            {/* Floating Elements around Dashboard */}
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-float"></div>
+            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-indigo-400/20 to-cyan-400/20 rounded-full blur-xl animate-pulse-slow"></div>
           </div>
         </div>
       </div>
