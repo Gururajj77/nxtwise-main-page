@@ -43,14 +43,14 @@ export function KeyMessagingSection() {
               <span>Stop Fighting Your Software</span>
             </div>
             
-            <h2 className="text-4xl lg:text-6xl font-bold text-[#1A1A1A] leading-tight max-w-4xl mx-auto animate-fade-up" style={{ animationDelay: '0.1s' }}>
+            <h2 className="text-4xl lg:text-6xl font-bold text-[#1A1A1A] leading-tight max-w-4xl mx-auto animate-fade-up animation-delay-100">
               Stay Ahead with AI That Actually{" "}
               <span className="bg-gradient-to-r from-[#004AAD] to-[#0B1E3F] bg-clip-text text-transparent">
                 Understands Your Business
               </span>
             </h2>
             
-            <p className="text-lg md:text-xl text-[#6B7280] max-w-3xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '0.2s' }}>
+            <p className="text-lg md:text-xl text-[#6B7280] max-w-3xl mx-auto leading-relaxed animate-fade-up animation-delay-200">
               Make smarter decisions with AI-powered analytics. We help you track key metrics, automate
               workflows, and gain real-time insights to scale your business effortlessly.
             </p>
@@ -59,7 +59,7 @@ export function KeyMessagingSection() {
           {/* Main Content Grid */}
           <div className="grid lg:grid-cols-3 gap-8 mb-12">
             {/* Left Column - Current Pain Points */}
-            <div className="lg:col-span-1 space-y-6 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+            <div className="lg:col-span-1 space-y-6 animate-fade-up animation-delay-300">
               <Card className="p-6 bg-white shadow-lg border-0">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
@@ -97,7 +97,7 @@ export function KeyMessagingSection() {
             </div>
 
             {/* Center Column - Transformation Metrics */}
-            <div className="lg:col-span-1 space-y-6 animate-fade-up" style={{ animationDelay: '0.4s' }}>
+            <div className="lg:col-span-1 space-y-6 animate-fade-up animation-delay-400">
               <Card className="p-6 bg-gradient-to-br from-white to-blue-50/30 shadow-lg border-0">
                 <div className="text-center space-y-6">
                   <div className="relative">
@@ -133,7 +133,7 @@ export function KeyMessagingSection() {
             </div>
 
             {/* Right Column - Solution Capabilities */}
-            <div className="lg:col-span-1 space-y-6 animate-fade-up" style={{ animationDelay: '0.5s' }}>
+            <div className="lg:col-span-1 space-y-6 animate-fade-up animation-delay-500">
               <Card className="p-6 bg-white shadow-lg border-0">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
@@ -180,7 +180,7 @@ export function KeyMessagingSection() {
           </div>
 
           {/* CTA Section */}
-          <Card className="p-8 lg:p-12 bg-gradient-to-r from-[#004AAD]/5 to-indigo-500/5 shadow-xl border border-[#004AAD]/10 animate-fade-up" style={{ animationDelay: '0.6s' }}>
+          <Card className="p-8 lg:p-12 bg-gradient-to-r from-[#004AAD]/5 to-indigo-500/5 shadow-xl border border-[#004AAD]/10 animate-fade-up animation-delay-600">
             <div className="text-center space-y-6">
               <h3 className="text-2xl lg:text-3xl font-bold text-[#1A1A1A]">
                 Ready to Transform Your Business Operations?

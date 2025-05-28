@@ -4,9 +4,11 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { BookCallModal } from "@/components/ui/book-call-modal"
 import { TrendingUp, Users, Zap, ArrowRight, Sparkles, Brain, Cpu, Calendar, BarChart, Target } from "lucide-react"
-import Image from "next/image"
 
 export function HeroSection() {
+  // Fixed heights for chart bars to avoid hydration issues
+  const chartHeights = [45, 60, 55, 100, 70, 50]
+
   return (
     <section className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/40 to-indigo-100/60 pt-32 pb-20 px-4 overflow-hidden relative">
       {/* Animated Background Elements */}
@@ -14,7 +16,7 @@ export function HeroSection() {
         {/* Geometric Shapes */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-float"></div>
         <div className="absolute top-40 right-20 w-48 h-48 bg-gradient-to-r from-indigo-400/15 to-cyan-400/15 rounded-full blur-2xl animate-pulse-slow"></div>
-        <div className="absolute bottom-32 left-1/4 w-24 h-24 bg-gradient-to-r from-pink-400/20 to-rose-400/20 rounded-full blur-lg animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-32 left-1/4 w-24 h-24 bg-gradient-to-r from-pink-400/20 to-rose-400/20 rounded-full blur-lg animate-float animation-delay-2000"></div>
 
         {/* Grid Pattern */}
         <div className="absolute inset-0 opacity-[0.03]">
@@ -36,20 +38,20 @@ export function HeroSection() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-[#1A1A1A] leading-tight max-w-5xl mx-auto animate-fade-up" style={{ animationDelay: '0.1s' }}>
-           Custom AI Systems
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-[#1A1A1A] leading-tight max-w-5xl mx-auto animate-fade-up animation-delay-100">
+            Powering AI-Driven Growth with{" "}
             <span className="bg-gradient-to-r from-[#004AAD] to-[#0B1E3F] bg-clip-text text-transparent">
-               {" "} Built Right
+              Custom Solutions
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed animate-fade-up animation-delay-200">
             We provide the tools and insights you need to enhance performance and achieve results.
           </p>
 
           {/* CTA Button */}
-          <div className="animate-fade-up" style={{ animationDelay: '0.3s' }}>
+          <div className="animate-fade-up animation-delay-300">
             <BookCallModal>
               <Button
                 size="lg"
@@ -63,7 +65,7 @@ export function HeroSection() {
         </div>
 
         {/* Dashboard Preview */}
-        <div className="max-w-6xl mx-auto animate-fade-up" style={{ animationDelay: '0.4s' }}>
+        <div className="max-w-6xl mx-auto animate-fade-up animation-delay-400">
           <div className="relative group">
             {/* Glow Effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-[#004AAD]/20 to-indigo-500/20 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-300"></div>
@@ -150,7 +152,7 @@ export function HeroSection() {
                             className={`w-full mx-1 rounded-t transition-all duration-300 ${
                               index === 3 ? 'bg-gradient-to-t from-[#004AAD] to-indigo-500' : 'bg-gray-300'
                             }`}
-                            style={{ height: `${index === 3 ? 100 : 40 + Math.random() * 40}%` }}
+                            style={{ height: `${chartHeights[index]}%` }}
                           />
                           <span className="text-xs text-[#6B7280]">{day}</span>
                         </div>
