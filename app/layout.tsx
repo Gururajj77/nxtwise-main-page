@@ -2,9 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'nxtwise',
+  description: 'nxtwise is a custom software development company specializing in AI solutions for businesses.',
 }
 
 export default function RootLayout({
