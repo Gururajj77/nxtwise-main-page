@@ -4,12 +4,15 @@ import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Mail, Pill, Users, BarChart3, CheckCircle, Clock, TrendingUp, Package, Bell, Calendar, ListChecks, ExternalLink, Zap, Activity, Droplet, Shield, ClipboardCheck, Target, MoreVertical, Download, Filter, Search, ChevronDown, AlertCircle, ArrowUpRight, ArrowDownRight, Plus, Settings, RefreshCw } from 'lucide-react';
+import { ArrowRight, Mail, Pill, Users, BarChart3, CheckCircle, Clock, TrendingUp, Package, Bell, Calendar, ListChecks, ExternalLink, Zap, Activity, Droplet, Shield, ClipboardCheck, Target, MoreVertical, Download, Filter, Search, ChevronDown, AlertCircle, ArrowUpRight, ArrowDownRight, Plus, Settings, RefreshCw, ChevronLeft, Edit3, Eye, Send, UserPlus, FileText, Star } from 'lucide-react';
+import { EmailAnalytics, EmailCampaignBuilder, EmailDashboardPreview, EmailSubscribers } from './dashboards/email-components';
 
 type DashboardType = 'email' | 'inventory' | 'tasks';
+type EmailPage = 'dashboard' | 'campaign-builder' | 'subscribers' | 'analytics';
 
 export function DashboardShowcase() {
   const [activeTab, setActiveTab] = useState<DashboardType>('email');
+  const [emailPage, setEmailPage] = useState<EmailPage>('dashboard');
 
   const dashboards = [
     {
@@ -85,6 +88,19 @@ export function DashboardShowcase() {
 
   const activeDashboard = dashboards.find(d => d.id === activeTab) || dashboards[0];
 
+  const renderEmailContent = () => {
+    switch (emailPage) {
+      case 'campaign-builder':
+        return <EmailCampaignBuilder onBack={() => setEmailPage('dashboard')} />;
+      case 'subscribers':
+        return <EmailSubscribers onBack={() => setEmailPage('dashboard')} />;
+      case 'analytics':
+        return <EmailAnalytics onBack={() => setEmailPage('dashboard')} />;
+      default:
+        return <EmailDashboardPreview onNavigate={setEmailPage} />;
+    }
+  };
+
   return (
     <section id="dashboards" className="py-16 lg:py-24 bg-white">
       <div className="container mx-auto px-4">
@@ -98,7 +114,11 @@ export function DashboardShowcase() {
         <Tabs 
           defaultValue="email" 
           className="w-full"
-          onValueChange={(value) => setActiveTab(value as DashboardType)}
+          onValueChange={(value) => {
+            setActiveTab(value as DashboardType);
+            // Reset email page when switching tabs
+            setEmailPage('dashboard');
+          }}
         >
           {/* Tab Navigation */}
           <div className="flex flex-col items-center mb-8 lg:mb-12">
@@ -194,7 +214,7 @@ export function DashboardShowcase() {
                 {/* Right side - Dashboard Preview */}
                 <div className="w-full lg:w-7/12 mt-6 lg:mt-0">
                   <div className="rounded-xl border border-slate-200 shadow-2xl overflow-hidden bg-white">
-                    {activeDashboard.id === 'email' && <EmailDashboardPreview />}
+                    {activeDashboard.id === 'email' && renderEmailContent()}
                     {activeDashboard.id === 'inventory' && <InventoryDashboardPreview />}
                     {activeDashboard.id === 'tasks' && <TaskDashboardPreview />}
                   </div>
@@ -205,168 +225,6 @@ export function DashboardShowcase() {
         </Tabs>
       </div>
     </section>
-  );
-}
-
-// Email Dashboard Preview - More realistic
-function EmailDashboardPreview() {
-  return (
-    <div className="bg-gray-50" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif' }}>
-      {/* Dashboard Header */}
-      <div className="bg-white border-b border-gray-200 px-4 md:px-6 py-3 md:py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <h3 className="text-gray-900 text-sm md:text-base" style={{ fontWeight: 600, letterSpacing: '-0.025em' }}>Campaign Dashboard</h3>
-            <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full">Live</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <button className="p-2 hover:bg-blue-50 rounded-full transition-colors">
-              <RefreshCw className="w-4 h-4 text-blue-600" />
-            </button>
-            <button className="p-2 hover:bg-blue-50 rounded-full transition-colors">
-              <Download className="w-4 h-4 text-blue-600" />
-            </button>
-            <button className="p-2 hover:bg-blue-50 rounded-full transition-colors">
-              <Settings className="w-4 h-4 text-blue-600" />
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      {/* Main Content */}
-      <div className="p-4 md:p-6 space-y-4">
-        {/* Stats Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 p-3 rounded-xl border border-blue-200/50">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-blue-700 font-medium">Sent</span>
-              <Mail className="w-4 h-4 text-blue-600" />
-            </div>
-            <p className="text-lg font-bold text-blue-900">48,392</p>
-            <p className="text-xs text-blue-600 flex items-center mt-1 font-medium">
-              <ArrowUpRight className="w-3 h-3 mr-0.5" />
-              12.5%
-            </p>
-          </div>
-          <div className="bg-gradient-to-br from-green-50 to-green-100/50 p-3 rounded-xl border border-green-200/50">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-green-700 font-medium">Opened</span>
-              <ExternalLink className="w-4 h-4 text-green-600" />
-            </div>
-            <p className="text-lg font-bold text-green-900">12,003</p>
-            <p className="text-xs text-green-600 flex items-center mt-1 font-medium">
-              <ArrowUpRight className="w-3 h-3 mr-0.5" />
-              8.3%
-            </p>
-          </div>
-          <div className="bg-gradient-to-br from-purple-50 to-purple-100/50 p-3 rounded-xl border border-purple-200/50">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-purple-700 font-medium">Clicked</span>
-              <Target className="w-4 h-4 text-purple-600" />
-            </div>
-            <p className="text-lg font-bold text-purple-900">1,549</p>
-            <p className="text-xs text-purple-600 flex items-center mt-1 font-medium">
-              <ArrowUpRight className="w-3 h-3 mr-0.5" />
-              5.7%
-            </p>
-          </div>
-          <div className="bg-gradient-to-br from-indigo-50 to-indigo-100/50 p-3 rounded-xl border border-indigo-200/50">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-indigo-700 font-medium">Converted</span>
-              <TrendingUp className="w-4 h-4 text-indigo-600" />
-            </div>
-            <p className="text-lg font-bold text-indigo-900">342</p>
-            <p className="text-xs text-indigo-600 flex items-center mt-1 font-medium">
-              <ArrowUpRight className="w-3 h-3 mr-0.5" />
-              22.1%
-            </p>
-          </div>
-        </div>
-
-        {/* Recent Campaigns Table */}
-        <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-          <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between">
-            <h4 className="font-medium text-gray-900 text-sm">Recent Campaigns</h4>
-            <button className="text-xs text-blue-600 hover:text-blue-700 font-semibold">View all →</button>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-blue-50/50 text-xs text-gray-600">
-                <tr>
-                  <th className="px-4 py-3 text-left font-semibold">Campaign</th>
-                  <th className="px-4 py-2 text-left font-medium">Status</th>
-                  <th className="px-4 py-2 text-right font-medium">Sent</th>
-                  <th className="px-4 py-2 text-right font-medium">Open Rate</th>
-                  <th className="px-4 py-2 text-right font-medium">CTR</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                <tr className="hover:bg-gray-50">
-                  <td className="px-4 py-3 text-sm">
-                    <div>
-                      <p className="text-gray-900" style={{ fontWeight: 500 }}>Summer Sale 2024</p>
-                      <p className="text-xs text-gray-500">Sent 2 hours ago</p>
-                    </div>
-                  </td>
-                  <td className="px-4 py-3">
-                    <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-500 text-white">
-                    Active
-                    </span>
-                  </td>
-                  <td className="px-4 py-3 text-sm text-right text-gray-900">12,450</td>
-                  <td className="px-4 py-3 text-sm text-right">
-                    <span className="text-green-600">28.4%</span>
-                  </td>
-                  <td className="px-4 py-3 text-sm text-right">
-                    <span className="text-green-600">3.8%</span>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-4 py-3 text-sm">
-                    <div>
-                      <p className="font-medium text-gray-900">Product Launch</p>
-                      <p className="text-xs text-gray-500">Sent yesterday</p>
-                    </div>
-                  </td>
-                  <td className="px-4 py-3">
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                      Active
-                    </span>
-                  </td>
-                  <td className="px-4 py-3 text-sm text-right text-gray-900">8,234</td>
-                  <td className="px-4 py-3 text-sm text-right">
-                    <span className="text-green-600">32.1%</span>
-                  </td>
-                  <td className="px-4 py-3 text-sm text-right">
-                    <span className="text-green-600">4.2%</span>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-4 py-3 text-sm">
-                    <div>
-                      <p className="font-medium text-gray-900">Weekly Newsletter</p>
-                      <p className="text-xs text-gray-500">Sent 3 days ago</p>
-                    </div>
-                  </td>
-                  <td className="px-4 py-3">
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                      Completed
-                    </span>
-                  </td>
-                  <td className="px-4 py-3 text-sm text-right text-gray-900">15,708</td>
-                  <td className="px-4 py-3 text-sm text-right">
-                    <span className="text-gray-600">22.7%</span>
-                  </td>
-                  <td className="px-4 py-3 text-sm text-right">
-                    <span className="text-gray-600">2.1%</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
 
