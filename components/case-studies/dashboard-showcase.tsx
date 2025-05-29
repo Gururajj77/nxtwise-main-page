@@ -211,23 +211,23 @@ export function DashboardShowcase() {
 // Email Dashboard Preview - More realistic
 function EmailDashboardPreview() {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif' }}>
       {/* Dashboard Header */}
       <div className="bg-white border-b border-gray-200 px-4 md:px-6 py-3 md:py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <h3 className="font-semibold text-gray-900 text-sm md:text-base">Campaign Dashboard</h3>
+            <h3 className="text-gray-900 text-sm md:text-base" style={{ fontWeight: 600, letterSpacing: '-0.025em' }}>Campaign Dashboard</h3>
             <span className="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full">Live</span>
           </div>
           <div className="flex items-center gap-2">
-            <button className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors">
-              <RefreshCw className="w-4 h-4 text-gray-500" />
+            <button className="p-2 hover:bg-blue-50 rounded-full transition-colors">
+              <RefreshCw className="w-4 h-4 text-blue-600" />
             </button>
-            <button className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors">
-              <Download className="w-4 h-4 text-gray-500" />
+            <button className="p-2 hover:bg-blue-50 rounded-full transition-colors">
+              <Download className="w-4 h-4 text-blue-600" />
             </button>
-            <button className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors">
-              <Settings className="w-4 h-4 text-gray-500" />
+            <button className="p-2 hover:bg-blue-50 rounded-full transition-colors">
+              <Settings className="w-4 h-4 text-blue-600" />
             </button>
           </div>
         </div>
@@ -237,46 +237,46 @@ function EmailDashboardPreview() {
       <div className="p-4 md:p-6 space-y-4">
         {/* Stats Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div className="bg-white p-3 rounded-lg border border-gray-200">
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 p-3 rounded-xl border border-blue-200/50">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-gray-500">Sent</span>
-              <Mail className="w-4 h-4 text-blue-500" />
+              <span className="text-xs text-blue-700 font-medium">Sent</span>
+              <Mail className="w-4 h-4 text-blue-600" />
             </div>
-            <p className="text-lg font-semibold text-gray-900">48,392</p>
-            <p className="text-xs text-green-600 flex items-center mt-1">
+            <p className="text-lg font-bold text-blue-900">48,392</p>
+            <p className="text-xs text-blue-600 flex items-center mt-1 font-medium">
               <ArrowUpRight className="w-3 h-3 mr-0.5" />
               12.5%
             </p>
           </div>
-          <div className="bg-white p-3 rounded-lg border border-gray-200">
+          <div className="bg-gradient-to-br from-green-50 to-green-100/50 p-3 rounded-xl border border-green-200/50">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-gray-500">Opened</span>
-              <ExternalLink className="w-4 h-4 text-green-500" />
+              <span className="text-xs text-green-700 font-medium">Opened</span>
+              <ExternalLink className="w-4 h-4 text-green-600" />
             </div>
-            <p className="text-lg font-semibold text-gray-900">12,003</p>
-            <p className="text-xs text-green-600 flex items-center mt-1">
+            <p className="text-lg font-bold text-green-900">12,003</p>
+            <p className="text-xs text-green-600 flex items-center mt-1 font-medium">
               <ArrowUpRight className="w-3 h-3 mr-0.5" />
               8.3%
             </p>
           </div>
-          <div className="bg-white p-3 rounded-lg border border-gray-200">
+          <div className="bg-gradient-to-br from-purple-50 to-purple-100/50 p-3 rounded-xl border border-purple-200/50">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-gray-500">Clicked</span>
-              <Target className="w-4 h-4 text-purple-500" />
+              <span className="text-xs text-purple-700 font-medium">Clicked</span>
+              <Target className="w-4 h-4 text-purple-600" />
             </div>
-            <p className="text-lg font-semibold text-gray-900">1,549</p>
-            <p className="text-xs text-green-600 flex items-center mt-1">
+            <p className="text-lg font-bold text-purple-900">1,549</p>
+            <p className="text-xs text-purple-600 flex items-center mt-1 font-medium">
               <ArrowUpRight className="w-3 h-3 mr-0.5" />
               5.7%
             </p>
           </div>
-          <div className="bg-white p-3 rounded-lg border border-gray-200">
+          <div className="bg-gradient-to-br from-indigo-50 to-indigo-100/50 p-3 rounded-xl border border-indigo-200/50">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs text-gray-500">Converted</span>
-              <TrendingUp className="w-4 h-4 text-indigo-500" />
+              <span className="text-xs text-indigo-700 font-medium">Converted</span>
+              <TrendingUp className="w-4 h-4 text-indigo-600" />
             </div>
-            <p className="text-lg font-semibold text-gray-900">342</p>
-            <p className="text-xs text-green-600 flex items-center mt-1">
+            <p className="text-lg font-bold text-indigo-900">342</p>
+            <p className="text-xs text-indigo-600 flex items-center mt-1 font-medium">
               <ArrowUpRight className="w-3 h-3 mr-0.5" />
               22.1%
             </p>
@@ -284,16 +284,16 @@ function EmailDashboardPreview() {
         </div>
 
         {/* Recent Campaigns Table */}
-        <div className="bg-white rounded-lg border border-gray-200">
+        <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
           <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between">
             <h4 className="font-medium text-gray-900 text-sm">Recent Campaigns</h4>
-            <button className="text-xs text-blue-600 hover:text-blue-700">View all</button>
+            <button className="text-xs text-blue-600 hover:text-blue-700 font-semibold">View all →</button>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 text-xs text-gray-500">
+              <thead className="bg-blue-50/50 text-xs text-gray-600">
                 <tr>
-                  <th className="px-4 py-2 text-left font-medium">Campaign</th>
+                  <th className="px-4 py-3 text-left font-semibold">Campaign</th>
                   <th className="px-4 py-2 text-left font-medium">Status</th>
                   <th className="px-4 py-2 text-right font-medium">Sent</th>
                   <th className="px-4 py-2 text-right font-medium">Open Rate</th>
@@ -304,13 +304,13 @@ function EmailDashboardPreview() {
                 <tr className="hover:bg-gray-50">
                   <td className="px-4 py-3 text-sm">
                     <div>
-                      <p className="font-medium text-gray-900">Summer Sale 2024</p>
+                      <p className="text-gray-900" style={{ fontWeight: 500 }}>Summer Sale 2024</p>
                       <p className="text-xs text-gray-500">Sent 2 hours ago</p>
                     </div>
                   </td>
                   <td className="px-4 py-3">
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                      Active
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-500 text-white">
+                    Active
                     </span>
                   </td>
                   <td className="px-4 py-3 text-sm text-right text-gray-900">12,450</td>
@@ -373,24 +373,24 @@ function EmailDashboardPreview() {
 // Inventory Dashboard Preview - More realistic
 function InventoryDashboardPreview() {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50" style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>
       {/* Dashboard Header */}
       <div className="bg-white border-b border-gray-200 px-4 md:px-6 py-3 md:py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <h3 className="font-semibold text-gray-900 text-sm md:text-base">Inventory Management</h3>
+            <h3 className="text-gray-900 text-sm md:text-base" style={{ fontWeight: 700, letterSpacing: '0.01em' }}>Inventory Management</h3>
             <div className="flex items-center gap-2">
               <span className="text-xs text-gray-500">Last updated:</span>
               <span className="text-xs text-gray-700">2 min ago</span>
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <button className="px-3 py-1.5 text-xs bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center gap-1">
+            <button className="px-3 py-1.5 text-xs bg-emerald-600 text-white rounded hover:bg-emerald-700 flex items-center gap-1 font-medium">
               <Plus className="w-3 h-3" />
               Add Product
             </button>
-            <button className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors">
-              <Filter className="w-4 h-4 text-gray-500" />
+            <button className="p-1.5 border border-gray-300 hover:bg-gray-50 rounded transition-colors">
+              <Filter className="w-4 h-4 text-gray-600" />
             </button>
           </div>
         </div>
@@ -402,14 +402,14 @@ function InventoryDashboardPreview() {
         <div className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
           <div>
-            <p className="text-sm font-medium text-amber-900">18 products expiring soon</p>
+            <p className="text-sm text-amber-900" style={{ fontWeight: 600 }}>18 products expiring soon</p>
             <p className="text-xs text-amber-700 mt-0.5">Review and take action on products expiring within 30 days</p>
           </div>
         </div>
 
         {/* Stats Overview */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div className="bg-white p-3 rounded-lg border border-gray-200">
+          <div className="bg-white p-3 rounded border border-gray-200 shadow-sm">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs text-gray-500">Total Value</span>
               <TrendingUp className="w-4 h-4 text-blue-500" />
@@ -447,25 +447,25 @@ function InventoryDashboardPreview() {
         </div>
 
         {/* Inventory Table */}
-        <div className="bg-white rounded-lg border border-gray-200">
+        <div className="bg-white rounded border shadow-sm">
           <div className="px-4 py-3 border-b border-gray-200 flex items-center justify-between">
             <h4 className="font-medium text-gray-900 text-sm">Stock Overview</h4>
             <div className="flex items-center gap-2">
               <div className="relative">
-                <Search className="w-4 h-4 text-gray-400 absolute left-2 top-1/2 -translate-y-1/2" />
-                <input 
-                  type="text" 
-                  placeholder="Search products..." 
-                  className="pl-8 pr-3 py-1 text-xs border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
-                />
+              <Search className="w-4 h-4 text-gray-400 absolute left-2 top-1/2 -translate-y-1/2" />
+              <input 
+              type="text" 
+              placeholder="Search products..." 
+              className="pl-8 pr-3 py-1.5 text-xs border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50"
+              />
               </div>
             </div>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 text-xs text-gray-500">
+              <thead className="bg-emerald-50/50 text-xs text-gray-600 border-b border-emerald-100">
                 <tr>
-                  <th className="px-4 py-2 text-left font-medium">Product</th>
+                  <th className="px-4 py-3 text-left font-bold">Product</th>
                   <th className="px-4 py-2 text-left font-medium">Category</th>
                   <th className="px-4 py-2 text-right font-medium">Stock</th>
                   <th className="px-4 py-2 text-right font-medium">Status</th>
@@ -476,7 +476,7 @@ function InventoryDashboardPreview() {
                 <tr className="hover:bg-gray-50">
                   <td className="px-4 py-3 text-sm">
                     <div>
-                      <p className="font-medium text-gray-900">Paracetamol 500mg</p>
+                      <p className="text-gray-900" style={{ fontWeight: 600 }}>Paracetamol 500mg</p>
                       <p className="text-xs text-gray-500">SKU: MED-001</p>
                     </div>
                   </td>
@@ -557,21 +557,21 @@ function InventoryDashboardPreview() {
 // Task Dashboard Preview - More realistic
 function TaskDashboardPreview() {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50" style={{ fontFamily: '"SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif' }}>
       {/* Dashboard Header */}
       <div className="bg-white border-b border-gray-200 px-4 md:px-6 py-3 md:py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <h3 className="font-semibold text-gray-900 text-sm md:text-base">Project Overview</h3>
-            <select className="text-xs border border-gray-300 rounded-lg px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500">
+            <h3 className="text-gray-900 text-sm md:text-base" style={{ fontWeight: 500, letterSpacing: '-0.01em' }}>Project Overview</h3>
+            <select className="text-xs border border-violet-200 rounded-xl px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-violet-500 bg-violet-50/50 font-medium">
               <option>Current Sprint</option>
               <option>All Projects</option>
               <option>My Tasks</option>
             </select>
           </div>
           <div className="flex items-center gap-2">
-            <button className="px-3 py-1.5 text-xs bg-violet-600 text-white rounded-lg hover:bg-violet-700 flex items-center gap-1">
-              <Plus className="w-3 h-3" />
+            <button className="px-4 py-2 text-xs bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-xl hover:from-violet-700 hover:to-purple-700 flex items-center gap-1.5 shadow-sm font-medium">
+              <Plus className="w-3.5 h-3.5" />
               New Task
             </button>
           </div>
@@ -581,10 +581,10 @@ function TaskDashboardPreview() {
       {/* Main Content */}
       <div className="p-4 md:p-6 space-y-4">
         {/* Sprint Progress */}
-        <div className="bg-white rounded-lg border border-gray-200 p-4">
+        <div className="bg-gradient-to-br from-white to-violet-50/30 rounded-2xl border border-violet-200/50 p-4 shadow-sm">
           <div className="flex items-center justify-between mb-3">
             <div>
-              <h4 className="font-medium text-gray-900 text-sm">Sprint 23 Progress</h4>
+              <h4 className="text-gray-900 text-sm" style={{ fontWeight: 500 }}>Sprint 23 Progress</h4>
               <p className="text-xs text-gray-500">Ends in 4 days</p>
             </div>
             <span className="text-2xl font-bold text-violet-600">87%</span>
@@ -610,7 +610,7 @@ function TaskDashboardPreview() {
 
         {/* Task Boards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-gray-100 rounded-lg p-3">
+          <div className="bg-gradient-to-b from-gray-50 to-gray-100 rounded-xl p-3 border border-gray-200/50">
             <div className="flex items-center justify-between mb-3">
               <h5 className="font-medium text-gray-700 text-sm">To Do</h5>
               <span className="text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded-full">5</span>
@@ -619,7 +619,7 @@ function TaskDashboardPreview() {
               <div className="bg-white p-3 rounded-lg border border-gray-200 hover:shadow-sm transition-shadow cursor-pointer">
                 <div className="flex items-start justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-900">Update API documentation</p>
+                    <p className="text-sm text-gray-900" style={{ fontWeight: 500 }}>Update API documentation</p>
                     <div className="flex items-center gap-2 mt-1">
                       <span className="text-xs px-1.5 py-0.5 bg-blue-100 text-blue-700 rounded">Backend</span>
                       <span className="text-xs text-gray-500">DEV-142</span>
